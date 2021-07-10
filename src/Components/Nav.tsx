@@ -1,12 +1,8 @@
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import React from 'react';
-require('Icon/tags.svg') // svg-loader => svg-sprite-loader
-require('Icon/money.svg')
-require('Icon/chart.svg')
+import Icon from './Icon';
 
-// console.log(y);
-// console.log(X);
 
 const NavCss = styled.nav`
   border: 1px solid cornflowerblue;
@@ -35,23 +31,17 @@ const Nav = () => {
     <NavCss>
       <ul>
         <li>
-          <svg className='icon'>
-            <use xlinkHref="#tags"/>
-          </svg>
+         <Icon name='tags'/>
           <Link to="tags">标签</Link>
         </li>
 
         <li>
           <Link to="/money">记账</Link>
-          <svg className='icon'>
-            <use xlinkHref="#money"/>
-          </svg>
+          <Icon name="money"/>
         </li>
 
         <li>
-          <svg className='icon'>
-            <use xlinkHref="#chart"/>
-          </svg>
+          <Icon name='chart'/>
           <Link to="/Statistics">统计</Link>
         </li>
       </ul>

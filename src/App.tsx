@@ -7,22 +7,16 @@ import {
 } from 'react-router-dom';
 import styled from 'styled-components';
 import Nav from './Components/Nav';
-
-
-
-
 const Wrapper = styled.div`
   border: 1px solid pink;
   height: 100vh;
   display: flex;
   flex-direction: column;
 `;
-
 const Main = styled.div`
   border: 1px solid saddlebrown;
   flex-grow: 1; // 效果和高度100vh差不多
 `;
-
 function App() {
   return (
     <Router>
@@ -48,7 +42,6 @@ function App() {
             <Redirect exact from="/" to="/money"/>
           </Switch>
         </Main>
-
       <Nav/>
       </Wrapper>
     </Router>
