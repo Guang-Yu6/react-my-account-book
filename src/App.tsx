@@ -3,12 +3,15 @@ import {
   HashRouter as Router,
   Switch,
   Route,
-  Link,
   Redirect
 } from 'react-router-dom';
 import styled from 'styled-components';
+import Nav from './Components/Nav';
 
-const Wraper = styled.div`
+
+
+
+const Wrapper = styled.div`
   border: 1px solid pink;
   height: 100vh;
   display: flex;
@@ -17,27 +20,13 @@ const Wraper = styled.div`
 
 const Main = styled.div`
   border: 1px solid saddlebrown;
-  display: flex;
-  height: 100vh;
+  flex-grow: 1; // 效果和高度100vh差不多
 `;
-
-const Nav = styled.nav`
-  border: 1px solid cornflowerblue;
-  > ul {
-    display: flex;
-    > li {
-      width: 33.33333%;
-      text-align: center;
-      padding: 16px;
-    }
-  }
-`;
-
 
 function App() {
   return (
     <Router>
-      <Wraper>
+      <Wrapper>
         <Main>
           <Switch>
             <Route path="/tags">
@@ -60,24 +49,8 @@ function App() {
           </Switch>
         </Main>
 
-        <Nav>
-          <ul>
-            <li>
-              <Link to="tags">标签</Link>
-            </li>
-
-            <li>
-              <Link to="/money">记账</Link>
-            </li>
-
-            <li>
-              <Link to="/Statistics">统计</Link>
-            </li>
-          </ul>
-        </Nav>
-
-
-      </Wraper>
+      <Nav/>
+      </Wrapper>
     </Router>
   );
 }
