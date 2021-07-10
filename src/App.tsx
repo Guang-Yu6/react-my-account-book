@@ -1,27 +1,15 @@
 import React from 'react';
+import Layout from './Components/Layout';
 import {
   HashRouter as Router,
   Switch,
   Route,
   Redirect
 } from 'react-router-dom';
-import styled from 'styled-components';
-import Nav from './Components/Nav';
-const Wrapper = styled.div`
-  border: 1px solid pink;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-`;
-const Main = styled.div`
-  border: 1px solid saddlebrown;
-  flex-grow: 1; // 效果和高度100vh差不多
-`;
+
 function App() {
   return (
     <Router>
-      <Wrapper>
-        <Main>
           <Switch>
             <Route path="/tags">
               <Tags/>
@@ -41,9 +29,6 @@ function App() {
 
             <Redirect exact from="/" to="/money"/>
           </Switch>
-        </Main>
-      <Nav/>
-      </Wrapper>
     </Router>
   );
 }
@@ -53,15 +38,25 @@ function A() {
 }
 
 function Tags() {
-  return <h2>tags</h2>;
+  return (
+      <Layout>
+        <h2>标签页面</h2>
+      </Layout>
+  )
 }
-
 function Money() {
-  return <h2>money</h2>;
+  return (
+    <Layout>
+      <h2>记账页面</h2>
+    </Layout>
+  )
 }
-
 function Statistics() {
-  return <h3>统计页</h3>;
+  return (
+    <Layout>
+      <h2>统计页面</h2>
+    </Layout>
+  )
 }
 
 export default App;
