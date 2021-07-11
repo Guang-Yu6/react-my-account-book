@@ -3,7 +3,28 @@ import React from 'react';
 import styled from 'styled-components';
 
 const TagSection = styled.section`
-  
+  background: #FFFFFF;
+  border: 1px solid wheat;
+  > ol {
+     padding: 0 -12px;
+    > li {
+      background: #d9d9d9;
+      border-radius: 18px;
+      display: inline-block;  //把li变成行内块
+      padding: 4px 18px;
+      font-size: 14px;
+      margin: 8px 16px;
+    }
+  }
+  > button {
+     border: none;
+     background: none;
+     padding: 0 4px;
+     border-bottom: 1px solid cornflowerblue;
+     color: cornflowerblue;
+     margin-top: 10px;
+     margin-bottom: 10px;
+  }
 `
 const NoteSection = styled.section`
   
@@ -19,12 +40,12 @@ function Money() {
   return (
     <Layout>
       <TagSection>
-        <ul>
+        <ol>
           <li>衣</li>
           <li>食</li>
           <li>住</li>
           <li>行</li>
-        </ul>
+        </ol>
         <button>新增标签</button>
       </TagSection>
 
