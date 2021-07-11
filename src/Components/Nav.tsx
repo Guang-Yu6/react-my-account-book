@@ -7,7 +7,7 @@ import Icon from './Icon';
 const NavCss = styled.nav`
   border: 1px solid cornflowerblue;
   line-height: 24px;
-  background-color: wheat;
+  background-color: white;
   
   > ul {
     display: flex;
