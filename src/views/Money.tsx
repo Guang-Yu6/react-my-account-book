@@ -49,7 +49,27 @@ const NoteSection = styled.section`
   }
 `
 const TypeSection = styled.section`
-  
+  font-size: 24px;
+  > ul {
+    display: flex;
+    background: darkseagreen;
+    >li {
+      width: 50%;
+      text-align: center;
+      padding: 16px 0;
+      position: relative;
+      &.selected::after {  // 选中后 伪元素，就不会占用体积
+        content: '';
+        display: block;
+        height: 3px;
+        background: #333;
+        position: absolute;
+        width: 100%;
+        bottom:0;
+        left: 0;
+      }
+    }
+  }
 `
 const NumberSection = styled.section`
   
@@ -77,8 +97,10 @@ function Money() {
       </NoteSection>
 
       <TypeSection>
-        <div>支出</div>
-        <div>收入</div>
+        <ul>
+          <li className='selected'>支出</li>
+          <li>收入</li>
+        </ul>
       </TypeSection>
 
       <NumberSection>
