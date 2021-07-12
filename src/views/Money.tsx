@@ -4,26 +4,32 @@ import styled from 'styled-components';
 
 const TagSection = styled.section`
   background: #FFFFFF;
-  border: 1px solid wheat;
+  padding: 12px 19px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; // 尽量靠下
+  align-items: flex-start; // 尽量靠左
   > ol {
-     padding: 0 -12px;
+     margin: 0 -12px;
     > li {
       background: #d9d9d9;
       border-radius: 18px;
       display: inline-block;  //把li变成行内块
-      padding: 4px 18px;
+      padding: 3px 18px;
       font-size: 14px;
-      margin: 8px 16px;
+      margin: 8px 12px;
     }
   }
   > button {
      border: none;
      background: none;
-     padding: 0 4px;
+     padding: 2px 4px;
      border-bottom: 1px solid cornflowerblue;
      color: cornflowerblue;
-     margin-top: 10px;
-     margin-bottom: 10px;
+     margin-top: 8px;
+    
+    
   }
 `
 
@@ -72,12 +78,67 @@ const TypeSection = styled.section`
   }
 `
 const NumberSection = styled.section`
-  
+  display: flex;
+  flex-direction: column;
+  > .output {
+  background: white;
+  font-size: 36px;
+  line-height: 72px;
+  text-align: right;
+  padding: 0 16px;
+  } 
+  > .pad {
+    > button {
+      font-size: 18px;
+      float: left;
+      width: 25%;
+      height: 64px;
+      border: none;
+      &.ok{height: 128px;float: right;}
+      &.zero {width: 50%;}
+      &:nth-child(1){
+        background: #f2f2f2;
+      }
+      &:nth-child(2),
+      &:nth-child(5)
+      {
+        background: #E0E0E0;
+      }
+      &:nth-child(3),
+      &:nth-child(6),
+      &:nth-child(9)
+      {
+        background: #D3D3D3;
+      }
+      &:nth-child(4),
+      &:nth-child(7),
+      &:nth-child(10)
+      {
+        background: #C1C1C1;
+      }
+      &:nth-child(8),
+      &:nth-child(11),
+      &:nth-child(13)
+      {
+        background: #B8B8B8;
+      }
+      &:nth-child(12){
+        background:#9A9A9A;
+      }
+      &:nth-child(14)
+      {
+        background: #A9A9A9
+      }
+    }
+  }
 `
-
+const MyLayout = styled(Layout)`
+  display: flex;
+  flex-direction: column;
+`
 function Money() {
   return (
-    <Layout>
+    <MyLayout>
       <TagSection>
         <ol>
           <li>衣</li>
@@ -104,23 +165,25 @@ function Money() {
       </TypeSection>
 
       <NumberSection>
-        <div>100</div>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>删除</button>
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button>清空</button>
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
-        <button>0</button>
-        <button>.</button>
-        <button>OK</button>
+        <div className='output'>100</div>
+        <div className='pad clearfix'>
+          <button>1</button>
+          <button>2</button>
+          <button>3</button>
+          <button>删除</button>
+          <button>4</button>
+          <button>5</button>
+          <button>6</button>
+          <button>清空</button>
+          <button>7</button>
+          <button>8</button>
+          <button>9</button>
+          <button className='ok'>OK</button>
+          <button className='zero'>0</button>
+          <button >.</button>
+        </div>
       </NumberSection>
-    </Layout>
+    </MyLayout>
   )
 }
 
