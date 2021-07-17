@@ -5,7 +5,7 @@ const TypeSection = styled.section`
   > ul {
     display: flex;
     background: darkseagreen;
-    >li {
+    > li {
       width: 50%;
       text-align: center;
       padding: 16px 0;
