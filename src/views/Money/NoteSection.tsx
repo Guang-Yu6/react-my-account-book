@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import React, {useState} from 'react';
 
 const Wrapper = styled.section`
-  border: 1px solid greenyellow;
   background: #f5f5f5;
   padding: 10px 16px;
   font-size: 14px;
