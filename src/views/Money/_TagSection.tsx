@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import React, {useState} from 'react';
 
-const TagsSection = styled.section`
+const Wrapper = styled.section`
   background: #FFFFFF;
   padding: 12px 19px;
   flex-grow: 1;
@@ -46,14 +46,15 @@ const TagSection: React.FunctionComponent = () => {
     const index = selectedTags.indexOf(aa);  // 查找数组中的 "aa" 元素并返回它的下标：  aa默认的衣食住行
     if (index >= 0){  // >=0 说明在里面，在里面就要把它生成一个新的数组，这个新数组不包含aa就行了
       // 如果aa已被选中，就复制所有没有被选中的aa，作为新的selectedTag
-      setSelectedTags(selectedTags.filter(a => a !== aa)) // 找出不是这个aa的其他aa
+      setSelectedTags(selectedTags.filter(a => a !== aa)) // 找出不是这个aa的其他aa,只要a不等于aa就把它留下来
     }else {
       setSelectedTags([...selectedTags,aa])
     }
-  }, x = (aa:string) => selectedTags.indexOf(aa) >= 0 ? 'selected':''
+  }, x = (aa:string) => selectedTags.indexOf(aa) >= 0 ? 'selected':'';
+
   return (
     <div>
-      <TagsSection>
+      <Wrapper>
         <ol>
           {tags.map(aa =>
             <li
@@ -64,7 +65,7 @@ const TagSection: React.FunctionComponent = () => {
           )}
         </ol>
         <button onClick={onAddTag}>新增标签</button>
-      </TagsSection>
+      </Wrapper>
     </div>
 
   )
